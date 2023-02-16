@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
-  final route = AppRouter();
+  // final route = AppRouter();
   @override
   void initState() {
     super.initState();

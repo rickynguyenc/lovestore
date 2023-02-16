@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:love_store/ui/pages/home/home_page.dart';
 
 import '../../../../../flutter_flow/flutter_flow_util.dart';
@@ -247,12 +248,15 @@ class _LoginPageState extends State<LoginPage> {
                                         0, 24, 0, 0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => HomePage(),
-                                          ),
-                                        );
+                                        final res = await FirebaseAuth.instance
+                                            .signInWithEmailAndPassword(
+                                                email: _model
+                                                    .emailAddressController
+                                                    .text,
+                                                password: _model
+                                                    .passwordController.text);
+                                        print(
+                                            'Dang nhap thanh cong --------=======$res');
                                       },
                                       text: 'Sign In',
                                       options: FFButtonOptions(

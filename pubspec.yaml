@@ -28,6 +28,9 @@ dependencies:
   sqflite: 2.2.0+2
   timeago: 3.2.2
   url_launcher: 6.1.5
+  # firebase 
+  firebase_auth: 4.2.6
+  firebase_core: ^2.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -13,18 +13,23 @@
 part of 'app_router.dart';
 
 class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+  _$AppRouter({
+    GlobalKey<NavigatorState>? navigatorKey,
+    required this.routeGuard,
+  }) : super(navigatorKey);
+
+  final RouteGuard routeGuard;
 
   @override
   final Map<String, PageFactory> pagesMap = {
     HomeRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
         child: const HomePage(),
       );
     },
     LoginRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
         child: const LoginPage(),
       );
@@ -36,6 +41,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           HomeRoute.name,
           path: '/',
+          guards: [routeGuard],
         ),
         RouteConfig(
           LoginRoute.name,
