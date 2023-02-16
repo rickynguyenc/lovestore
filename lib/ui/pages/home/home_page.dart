@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:love_store/ui/route/app_router.dart';
-import 'package:provider/provider.dart';
 import '../../../flutter_flow/flutter_flow_model.dart';
 import '../../../flutter_flow/flutter_flow_theme.dart';
 import 'home_page_model.dart';
@@ -80,9 +78,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                     child: ElevatedButton(
-                      child: Text('GoTo Login PAge'),
+                      child: Text('GoTo Login '),
                       onPressed: () {
-                        AutoRouter.of(context).navigate(LoginRoute());
+                        // AutoRouter.of(context).navigate(LoginRoute());
                       },
                     ),
                   )

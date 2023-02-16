@@ -1,24 +1,24 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:love_store/data/provider/authentiaction_provider.dart';
+import 'package:love_store/data/provider/auto_route_provider.dart';
 import 'package:love_store/ui/pages/home/home_page.dart';
+import 'package:love_store/ui/route/app_router.dart';
 
 import '../../../../../flutter_flow/flutter_flow_util.dart';
 import '../../../flutter_flow/flutter_flow_theme.dart';
-import '../../../flutter_flow/flutter_flow_util.dart';
 import '../../../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'login_page_model.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatefulHookConsumerWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   late LoginpageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -45,6 +45,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final tokenNotifier = ref.read(tokenProvider);
+    final router = ref.read(appRouterProvider);
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryColor,
@@ -248,15 +250,10 @@ class _LoginPageState extends State<LoginPage> {
                                         0, 24, 0, 0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        final res = await FirebaseAuth.instance
-                                            .signInWithEmailAndPassword(
-                                                email: _model
-                                                    .emailAddressController
-                                                    .text,
-                                                password: _model
-                                                    .passwordController.text);
-                                        print(
-                                            'Dang nhap thanh cong --------=======$res');
+                                        await tokenNotifier.login(
+                                            _model.emailAddressController.text,
+                                            _model.passwordController.text);
+                                        router.replace(const HomeRoute());
                                       },
                                       text: 'Sign In',
                                       options: FFButtonOptions(
