@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "395889422927",
+    "project_id": "love-store-c41c5",
+    "storage_bucket": "love-store-c41c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395889422927:android:178b364b868058d641303a",
+        "android_client_info": {
+          "package_name": "com.rickynguyen.lovestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395889422927-2h70vv3ktf9f9mm1uv9uc73obris475m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlSEHfbE30VyMOuA3kMUppndjYO8FKmLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395889422927-2h70vv3ktf9f9mm1uv9uc73obris475m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
