@@ -25,7 +25,7 @@ class _$AppRouter extends RootStackRouter {
     HomeRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const HomePage(),
+        child: HomePage(),
       );
     },
     LoginRoute.name: (routeData) {

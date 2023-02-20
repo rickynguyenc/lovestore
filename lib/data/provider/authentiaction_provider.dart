@@ -25,6 +25,16 @@ class TokenNotifier extends ChangeNotifier {
     }
   }
 
+  Future<void> register(String email, String pass) async {
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: pass);
+    } catch (e) {
+      print(e);
+      // showSnackbar(message: 'Tài khoản hoặc mật khẩu không đúng !');
+    }
+  }
+
   Future<void> logout() async {
     try {
       await FirebaseAuth.instance.signOut();
