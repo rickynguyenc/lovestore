@@ -41,7 +41,7 @@ class HomePage extends HookConsumerWidget {
                       onPressed: () {
                         tokenNotifi.logout();
                         useRouter.popUntilRoot();
-                        useRouter.replace(const LoginRoute());
+                        useRouter.replace(LoginRoute());
                       },
                       icon: const Icon(Icons.menu))),
               Column(

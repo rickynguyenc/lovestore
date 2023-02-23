@@ -29,9 +29,11 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const LoginPage(),
+        child: LoginPage(key: args.key),
       );
     },
   };
@@ -70,12 +72,24 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [LoginPage]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute()
+class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({Key? key})
       : super(
           LoginRoute.name,
           path: '/login',
+          args: LoginRouteArgs(key: key),
         );
 
   static const String name = 'LoginRoute';
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key}';
+  }
 }

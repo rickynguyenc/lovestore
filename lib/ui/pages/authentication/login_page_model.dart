@@ -1,3 +1,5 @@
+import 'package:flutter_hooks/flutter_hooks.dart';
+
 import '../../../../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +11,7 @@ class LoginpageModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? emailAddressControllerValidator;
   // State field(s) for password widget.
   TextEditingController? passwordController;
-  late bool passwordVisibility;
+  late ValueNotifier<bool> passwordVisibility;
   String? Function(BuildContext, String?)? passwordControllerValidator;
   // State field(s) for emailAddress-Create widget.
   TextEditingController? emailAddressCreateController;
@@ -17,14 +19,14 @@ class LoginpageModel extends FlutterFlowModel {
       emailAddressCreateControllerValidator;
   // State field(s) for password-Create widget.
   TextEditingController? passwordCreateController;
-  late bool passwordCreateVisibility;
+  late ValueNotifier<bool> passwordCreateVisibility;
   String? Function(BuildContext, String?)? passwordCreateControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    passwordVisibility = false;
-    passwordCreateVisibility = false;
+    passwordVisibility = useState(false);
+    passwordCreateVisibility = useState(false);
   }
 
   void dispose() {

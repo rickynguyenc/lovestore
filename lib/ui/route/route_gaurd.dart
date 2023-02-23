@@ -19,7 +19,7 @@ class RouteGuard extends AutoRouteGuard {
       resolver.next();
     } else {
       // we redirect the user to our login page
-      router.pushAndPopUntil(const LoginRoute(), predicate: (r) => true);
+      router.pushAndPopUntil(LoginRoute(), predicate: (r) => true);
     }
   }
 }
